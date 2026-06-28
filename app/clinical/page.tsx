@@ -18,9 +18,7 @@ export default function ClinicalPage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState("");
-  const [history, setHistory] = useState<any[]>([]);
-
-  // Form
+  const [caseHistory, setCaseHistory] = useState<any[]>([]);
   const [patientName, setPatientName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
@@ -28,14 +26,14 @@ export default function ClinicalPage() {
   const [symptoms, setSymptoms] = useState("");
   const [duration, setDuration] = useState("");
   const [vitals, setVitals] = useState("");
-  const [history_text, setHistoryText] = useState("");
+  const [historyText, setHistoryText] = useState("");
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
     });
     const saved = localStorage.getItem("hp_clinical_history");
-    if (saved) setHistory(JSON.parse(saved));
+    if (saved) setCaseHistory(JSON.parse(saved));
   }, []);
 
   const analyze = async () => {
@@ -43,50 +41,21 @@ export default function ClinicalPage() {
     setLoading(true);
     setError("");
     setResult(null);
-
     try {
-      const response = await fetch("/api/clinical", {
+      const res = await fetch("/api/clinical", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-6",
-          max_tokens: 1000,
-          messages: [{
-            role: "user",
-            content: `You are a clinical decision support system for doctors in Africa. Based on WHO guidelines and MSD Manual, analyze this case and respond ONLY in JSON format with no markdown.
-
-Patient: ${patientName || "Unknown"}, Age: ${age || "Unknown"}, Gender: ${gender || "Unknown"}, Weight: ${weight || "Unknown"}kg
-Symptoms: ${symptoms}
-Duration: ${duration || "Not specified"}
-Vitals: ${vitals || "Not recorded"}
-Medical history: ${history_text || "None"}
-
-Respond with this exact JSON structure:
-{
-  "diagnosis": "most likely diagnosis",
-  "differentials": ["differential 1", "differential 2", "differential 3"],
-  "urgency": "high/medium/low",
-  "soap_note": "S: [subjective]\nO: [objective]\nA: [assessment]\nP: [plan]",
-  "drug_guidance": "recommended treatment with dosages",
-  "red_flags": ["red flag 1", "red flag 2"],
-  "follow_up": "follow up recommendation"
-}`
-          }]
-        })
+        body: JSON.stringify({ patientName, age, gender, weight, symptoms, duration, vitals, history_text: historyText }),
       });
-
-      const data = await response.json();
-      const text = data.content[0].text;
-      const parsed = JSON.parse(text.replace(/```json|```/g, "").trim());
+      if (!res.ok) throw new Error("API error");
+      const parsed = await res.json();
       setResult(parsed);
-
-      // Save to history
       const entry = { id: Date.now(), patientName, age, gender, symptoms, result: parsed, createdAt: new Date().toISOString() };
-      const updated = [entry, ...history].slice(0, 20);
-      setHistory(updated);
+      const updated = [entry, ...caseHistory].slice(0, 20);
+      setCaseHistory(updated);
       localStorage.setItem("hp_clinical_history", JSON.stringify(updated));
     } catch (err) {
-      setError("Analysis failed. Please try again.");
+      setError("Analysis failed. Please check your connection and try again.");
     }
     setLoading(false);
   };
@@ -128,12 +97,12 @@ Respond with this exact JSON structure:
 
           <div style={{ marginBottom: 14 }}>
             <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 5 }}>Chief complaint & symptoms *</label>
-            <textarea value={symptoms} onChange={e => setSymptoms(e.target.value)} placeholder="Describe all symptoms in detail — onset, character, severity, associated symptoms..." rows={4} style={{ width: "100%", padding: "10px 12px", border: "1px solid #e2e8f0", borderRadius: 7, fontSize: 13, boxSizing: "border-box" as const, resize: "vertical" as const }} />
+            <textarea value={symptoms} onChange={e => setSymptoms(e.target.value)} placeholder="Describe all symptoms in detail..." rows={4} style={{ width: "100%", padding: "10px 12px", border: "1px solid #e2e8f0", borderRadius: 7, fontSize: 13, boxSizing: "border-box" as const, resize: "vertical" as const }} />
           </div>
 
           <div style={{ marginBottom: 20 }}>
             <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 5 }}>Relevant medical history</label>
-            <textarea value={history_text} onChange={e => setHistoryText(e.target.value)} placeholder="Past medical history, medications, allergies, family history..." rows={2} style={{ width: "100%", padding: "10px 12px", border: "1px solid #e2e8f0", borderRadius: 7, fontSize: 13, boxSizing: "border-box" as const, resize: "vertical" as const }} />
+            <textarea value={historyText} onChange={e => setHistoryText(e.target.value)} placeholder="Past medical history, medications, allergies..." rows={2} style={{ width: "100%", padding: "10px 12px", border: "1px solid #e2e8f0", borderRadius: 7, fontSize: 13, boxSizing: "border-box" as const, resize: "vertical" as const }} />
           </div>
 
           {error && <div style={{ background: "#fef2f2", color: "#dc2626", padding: "10px 14px", borderRadius: 8, marginBottom: 16, fontSize: 13 }}>{error}</div>}
@@ -141,7 +110,7 @@ Respond with this exact JSON structure:
           <button onClick={analyze} disabled={loading || !symptoms} style={{ width: "100%", background: loading ? "#94a3b8" : "#1a3556", color: "#fff", padding: "13px", borderRadius: 9, fontWeight: 700, fontSize: 15, border: "none", cursor: loading ? "not-allowed" : "pointer" }}>
             {loading ? "🧠 Analyzing case..." : "🧠 Analyze Case →"}
           </button>
-          <p style={{ textAlign: "center", fontSize: 11, color: "#94a3b8", marginTop: 8 }}>For clinical decision support only. Doctor must review and verify all recommendations.</p>
+          <p style={{ textAlign: "center", fontSize: 11, color: "#94a3b8", marginTop: 8 }}>For clinical decision support only. Doctor must review all recommendations.</p>
         </div>
 
         {result && (
@@ -152,12 +121,10 @@ Respond with this exact JSON structure:
                 {result.urgency} urgency
               </span>
             </div>
-
             <div style={{ background: "#f0f7ff", borderRadius: 10, padding: 16, marginBottom: 16 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "#1a3556", marginBottom: 6, textTransform: "uppercase" as const }}>Primary Diagnosis</div>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#1a3556" }}>{result.diagnosis}</div>
             </div>
-
             <div style={{ marginBottom: 16 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", marginBottom: 8, textTransform: "uppercase" as const }}>Differential Diagnoses</div>
               {result.differentials?.map((d, i) => (
@@ -166,7 +133,6 @@ Respond with this exact JSON structure:
                 </div>
               ))}
             </div>
-
             {result.red_flags?.length > 0 && (
               <div style={{ background: "#fef2f2", borderRadius: 10, padding: 14, marginBottom: 16, border: "1px solid #fecaca" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#dc2626", marginBottom: 8, textTransform: "uppercase" as const }}>⚠️ Red Flags</div>
@@ -175,30 +141,25 @@ Respond with this exact JSON structure:
                 ))}
               </div>
             )}
-
             <div style={{ marginBottom: 16 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", marginBottom: 8, textTransform: "uppercase" as const }}>Drug Guidance</div>
               <div style={{ background: "#f8fafc", borderRadius: 8, padding: 14, fontSize: 13, color: "#334155", lineHeight: 1.6 }}>{result.drug_guidance}</div>
             </div>
-
             <div style={{ marginBottom: 16 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", marginBottom: 8, textTransform: "uppercase" as const }}>SOAP Note</div>
               <pre style={{ background: "#f8fafc", borderRadius: 8, padding: 14, fontSize: 12, color: "#334155", lineHeight: 1.7, whiteSpace: "pre-wrap" as const, fontFamily: "monospace" }}>{result.soap_note}</pre>
             </div>
-
             <div style={{ background: "#f0fdf4", borderRadius: 8, padding: 12, fontSize: 13, color: "#16a34a" }}>
               📅 <strong>Follow-up:</strong> {result.follow_up}
             </div>
           </div>
         )}
 
-        {history.length > 0 && (
+        {caseHistory.length > 0 && (
           <div style={{ background: "#fff", borderRadius: 14, padding: 24, border: "1px solid #e2e8f0" }}>
             <h3 style={{ color: "#1a3556", fontSize: 16, fontWeight: 700, marginBottom: 16 }}>Recent Cases</h3>
-            {history.slice(0, 5).map(h => (
-              <div key={h.id} onClick={() => setResult(h.result)} style={{ padding: "12px 16px", borderRadius: 8, border: "1px solid #e2e8f0", marginBottom: 8, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
-                onMouseOver={e => (e.currentTarget.style.borderColor = "#1a3556")}
-                onMouseOut={e => (e.currentTarget.style.borderColor = "#e2e8f0")}>
+            {caseHistory.slice(0, 5).map(h => (
+              <div key={h.id} onClick={() => setResult(h.result)} style={{ padding: "12px 16px", borderRadius: 8, border: "1px solid #e2e8f0", marginBottom: 8, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
                   <div style={{ fontWeight: 600, fontSize: 14, color: "#1a3556" }}>{h.patientName || "Unknown patient"}</div>
                   <div style={{ fontSize: 12, color: "#64748b" }}>{h.symptoms.substring(0, 60)}...</div>
