@@ -45,7 +45,7 @@ export default function ClinicalPage() {
     setResult(null);
 
     try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
+      const response = await fetch("/api/clinical", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
