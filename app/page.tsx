@@ -1,65 +1,65 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main style={{ fontFamily: "Arial, sans-serif", background: "#f8fafc", minHeight: "100vh" }}>
+      <nav style={{ background: "#1a3556", padding: "16px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ color: "#fff", fontWeight: 700, fontSize: 22 }}>🏥 Healthpost</div>
+        <div style={{ display: "flex", gap: 24 }}>
+          <a href="/signup" style={{ color: "#4fc3f7", textDecoration: "none", fontWeight: 600 }}>Sign up</a>
+          <a href="/login" style={{ color: "#fff", textDecoration: "none" }}>Log in</a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      <section style={{ background: "linear-gradient(135deg, #1a3556 0%, #2d5f8a 100%)", padding: "80px 40px", textAlign: "center", color: "#fff" }}>
+        <div style={{ display: "inline-block", background: "rgba(79,195,247,0.15)", border: "1px solid rgba(79,195,247,0.3)", borderRadius: 20, padding: "6px 16px", fontSize: 13, marginBottom: 24, color: "#4fc3f7" }}>
+          🏥 Hospital Operating System · Clinical Intelligence
         </div>
-      </main>
-    </div>
+        <h1 style={{ fontSize: 48, fontWeight: 800, marginBottom: 20, lineHeight: 1.2 }}>
+          Run your clinic or hospital —<br />
+          <em style={{ color: "#4fc3f7", fontStyle: "normal" }}>with intelligent clinical support.</em>
+        </h1>
+        <p style={{ fontSize: 18, color: "rgba(255,255,255,0.8)", maxWidth: 600, margin: "0 auto 32px" }}>
+          Healthpost is the hospital operating system for medical professionals — combining patient records, AI clinical support, OPD, admissions, pharmacy, and billing in one place.
+        </p>
+        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          <a href="/signup" style={{ background: "#4fc3f7", color: "#1a3556", padding: "14px 32px", borderRadius: 8, fontWeight: 700, textDecoration: "none", fontSize: 16 }}>Start free trial →</a>
+          <a href="mailto:hi@healthpost.africa" style={{ border: "2px solid rgba(255,255,255,0.4)", color: "#fff", padding: "14px 32px", borderRadius: 8, fontWeight: 600, textDecoration: "none", fontSize: 16 }}>📅 Book a demo</a>
+        </div>
+        <p style={{ marginTop: 16, fontSize: 13, color: "rgba(255,255,255,0.5)" }}>No credit card required · First 3 months free · Cancel anytime</p>
+      </section>
+
+      <section style={{ padding: "60px 40px", maxWidth: 1100, margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: 32, color: "#1a3556", marginBottom: 40 }}>Everything your hospital needs</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+          {[
+            { icon: "🏥", title: "OPD Management", desc: "Queue management, triage, and consultation flow for outpatient departments", soon: false },
+            { icon: "🛏️", title: "Admissions", desc: "Bed management, ward allocation, and patient discharge management", soon: false },
+            { icon: "💊", title: "In-house Pharmacy", desc: "Stock management, dispensing, prescriptions, and expiry alerts", soon: false },
+            { icon: "🧠", title: "Clinical AI", desc: "AI-powered differential diagnoses, drug guidance, and SOAP notes", soon: false },
+            { icon: "👤", title: "Patient Records", desc: "Complete medical history, lab results, and consultation logs", soon: false },
+            { icon: "📅", title: "Appointments", desc: "Scheduling, WhatsApp reminders, and calendar management", soon: false },
+            { icon: "💰", title: "Billing & Invoicing", desc: "Invoices, payments, insurance tracking, and financial reports", soon: false },
+            { icon: "🔬", title: "Lab Results", desc: "Upload and AI interpretation of laboratory test results", soon: false },
+            { icon: "📊", title: "Analytics", desc: "Patient flow, revenue, department performance, and clinical trends", soon: false },
+          ].map((m) => (
+            <div key={m.title} style={{ background: "#fff", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "1px solid #e2e8f0" }}>
+              <div style={{ fontSize: 32, marginBottom: 12 }}>{m.icon}</div>
+              <div style={{ fontWeight: 700, fontSize: 16, color: "#1a3556", marginBottom: 8 }}>{m.title}</div>
+              <div style={{ fontSize: 14, color: "#64748b", lineHeight: 1.5 }}>{m.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section style={{ background: "#1a3556", padding: "60px 40px", textAlign: "center", color: "#fff" }}>
+        <h2 style={{ fontSize: 32, marginBottom: 16 }}>Ready to run a smarter hospital?</h2>
+        <p style={{ color: "rgba(255,255,255,0.7)", marginBottom: 32, fontSize: 16 }}>Designed for medical professionals across Africa and beyond.</p>
+        <a href="/signup" style={{ background: "#4fc3f7", color: "#1a3556", padding: "16px 40px", borderRadius: 8, fontWeight: 700, textDecoration: "none", fontSize: 18 }}>Start free trial →</a>
+        <p style={{ marginTop: 16, fontSize: 12, color: "rgba(255,255,255,0.4)" }}>First 10 clinics get 3 months completely free</p>
+      </section>
+
+      <footer style={{ background: "#0f1f33", padding: "24px 40px", textAlign: "center", color: "rgba(255,255,255,0.4)", fontSize: 13 }}>
+        © {new Date().getFullYear()} Healthpost — Hospital Operating System for Africa and beyond · healthpost.africa
+      </footer>
+    </main>
   );
 }
