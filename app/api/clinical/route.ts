@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
         max_tokens: 1000,
         messages: [{
           role: "user",
-          content: `You are a clinical decision support system for doctors in Africa. Based on WHO guidelines and MSD Manual, analyze this case and respond ONLY in JSON format with no markdown.
+          content: `You are a clinical decision support system for doctors in Africa. Based on WHO guidelines and MSD Manual, analyze this case and respond ONLY in valid JSON format with no markdown or extra text.
 
 Patient: ${patientName || "Unknown"}, Age: ${age || "Unknown"}, Gender: ${gender || "Unknown"}, Weight: ${weight || "Unknown"}kg
 Symptoms: ${symptoms}
@@ -25,22 +25,23 @@ Duration: ${duration || "Not specified"}
 Vitals: ${vitals || "Not recorded"}
 Medical history: ${history_text || "None"}
 
-Respond with this exact JSON structure:
-{
-  "diagnosis": "most likely diagnosis",
-  "differentials": ["differential 1", "differential 2", "differential 3"],
-  "urgency": "high/medium/low",
-  "soap_note": "S: [subjective]\nO: [objective]\nA: [assessment]\nP: [plan]",
-  "drug_guidance": "recommended treatment with dosages",
-  "red_flags": ["red flag 1", "red flag 2"],
-  "follow_up": "follow up recommendation"
-}`
+Return ONLY this JSON object, nothing else:
+{"diagnosis":"string","differentials":["string","string","string"],"urgency":"high","soap_note":"string","drug_guidance":"string","red_flags":["string"],"follow_up":"string"}`
         }]
       })
     });
 
     const data = await response.json();
+    console.log("Anthropic response status:", response.status);
+    console.log("Anthropic data:", JSON.stringify(data).substring(0, 200));
+    
+    if (!data.content || !data.content[0]) {
+      console.error("No content in response:", data);
+      return NextResponse.json({ error: "No content" }, { status: 500 });
+    }
+    
     const text = data.content[0].text;
+    console.log("Text response:", text.substring(0, 200));
     const parsed = JSON.parse(text.replace(/```json|```/g, "").trim());
     return NextResponse.json(parsed);
   } catch (error) {
