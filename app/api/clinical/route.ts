@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
-        max_tokens: 1000,
+        max_tokens: 2000,
         messages: [{
           role: "user",
           content: `You are a clinical decision support system for doctors in Africa. Based on WHO guidelines and MSD Manual, analyze this case and respond ONLY in valid JSON format with no markdown or extra text.
