@@ -22,6 +22,7 @@ export default function Home() {
         </p>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="/pricing" style={{ color: "#4fc3f7", textDecoration: "none", marginRight: 16, fontSize: 14, fontWeight: 600 }}>Pricing</a>
+          <a href="/pricing" style={{ color: "#4fc3f7", textDecoration: "none", marginRight: 16, fontSize: 14, fontWeight: 600 }}>Pricing</a>
           <a href="/signup" style={{ background: "#4fc3f7", color: "#1a3556", padding: "14px 32px", borderRadius: 8, fontWeight: 700, textDecoration: "none", fontSize: 16 }}>Start free trial →</a>
           <a href="mailto:hi@healthpost.africa" style={{ border: "2px solid rgba(255,255,255,0.4)", color: "#fff", padding: "14px 32px", borderRadius: 8, fontWeight: 600, textDecoration: "none", fontSize: 16 }}>📅 Book a demo</a>
         </div>
@@ -55,6 +56,7 @@ export default function Home() {
         <h2 style={{ fontSize: 32, marginBottom: 16 }}>Ready to run a smarter hospital?</h2>
         <p style={{ color: "rgba(255,255,255,0.7)", marginBottom: 32, fontSize: 16 }}>Designed for medical professionals across Africa and beyond.</p>
         <a href="/pricing" style={{ color: "#4fc3f7", textDecoration: "none", marginRight: 16, fontSize: 14, fontWeight: 600 }}>Pricing</a>
+          <a href="/pricing" style={{ color: "#4fc3f7", textDecoration: "none", marginRight: 16, fontSize: 14, fontWeight: 600 }}>Pricing</a>
           <a href="/signup" style={{ background: "#4fc3f7", color: "#1a3556", padding: "16px 40px", borderRadius: 8, fontWeight: 700, textDecoration: "none", fontSize: 18 }}>Start free trial →</a>
         <p style={{ marginTop: 16, fontSize: 12, color: "rgba(255,255,255,0.4)" }}>First 10 clinics get 3 months completely free</p>
       </section>
