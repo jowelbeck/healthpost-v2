@@ -21,6 +21,14 @@ export default function SignupPage() {
       options: { data: { full_name: name } }
     });
     if (error) { setError(error.message); setLoading(false); return; }
+
+    // Send welcome email
+    fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, name, type: "welcome" }),
+    }).catch(() => {});
+
     router.push("/onboarding");
   };
 
