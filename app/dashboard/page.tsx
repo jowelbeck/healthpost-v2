@@ -40,9 +40,9 @@ export default function DashboardPage() {
       {/* Header */}
       <header style={{ background: "#1a3556", padding: "16px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 28 }}>🏥</span>
+          <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 36 }} />
           <div>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>Healthpost</div>
+            
             <div style={{ color: "#4fc3f7", fontSize: 12 }}>{facility?.name || "Your facility"}</div>
           </div>
         </div>
