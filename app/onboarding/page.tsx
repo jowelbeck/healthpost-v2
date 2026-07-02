@@ -31,7 +31,7 @@ export default function OnboardingPage() {
     <main style={{ minHeight: "100vh", background: "#f0f7ff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Arial, sans-serif" }}>
       <div style={{ background: "#fff", borderRadius: 16, padding: 40, width: "100%", maxWidth: 480, boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
         <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>🏥</div>
+          <img src="/logo-icon.svg" alt="Healthpost" style={{ width: 64, height: 64, marginBottom: 8 }} />
           <h1 style={{ color: "#1a3556", fontSize: 22, fontWeight: 800, margin: 0 }}>Set up your facility</h1>
           <p style={{ color: "#64748b", fontSize: 14, marginTop: 4 }}>Step {step} of 2</p>
           <div style={{ display: "flex", gap: 8, justifyContent: "center", marginTop: 12 }}>

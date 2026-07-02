@@ -11,7 +11,7 @@ export default function Home() {
 
       <section style={{ background: "linear-gradient(135deg, #1a3556 0%, #2d5f8a 100%)", padding: "80px 40px", textAlign: "center", color: "#fff" }}>
         <div style={{ display: "inline-block", background: "rgba(79,195,247,0.15)", border: "1px solid rgba(79,195,247,0.3)", borderRadius: 20, padding: "6px 16px", fontSize: 13, marginBottom: 24, color: "#4fc3f7" }}>
-          🏥 Hospital Operating System · Clinical Intelligence
+          Hospital Operating System · Clinical Intelligence
         </div>
         <h1 style={{ fontSize: 48, fontWeight: 800, marginBottom: 20, lineHeight: 1.2 }}>
           Run your clinic or hospital —<br />

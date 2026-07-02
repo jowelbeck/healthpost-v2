@@ -64,7 +64,7 @@ export default function PricingPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f8fafc", fontFamily: "Arial, sans-serif" }}>
       <header style={{ background: "#1a3556", padding: "16px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="/" style={{ color: "#fff", fontWeight: 700, fontSize: 20, textDecoration: "none" }}>🏥 Healthpost</a>
+        <a href="/"><img src="/logo-dark.svg" alt="Healthpost" style={{ height: 36 }} /></a>
         <div style={{ display: "flex", gap: 16 }}>
           <a href="/login" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Log in</a>
           <a href="/signup" style={{ background: "#4fc3f7", color: "#1a3556", padding: "7px 18px", borderRadius: 7, fontWeight: 700, textDecoration: "none", fontSize: 14 }}>Sign up free</a>
