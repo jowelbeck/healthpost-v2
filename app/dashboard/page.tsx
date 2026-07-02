@@ -22,8 +22,6 @@ export default function DashboardPage() {
   const [lang, setLang] = useState<"en" | "fr">("en");
   const t = hp_t(lang);
 
-  const [lang, setLang] = useState<"en" | "fr">("en");
-  const t = hp_t(lang);
 
   const modules = [
     { icon: "🏥", title: t.opd, desc: t.opdDesc, href: "/opd", color: "#dbeafe" },
