@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { hp_t } from "@/lib/translations";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -19,16 +20,16 @@ export default function DashboardPage() {
   }, []);
 
   const modules = [
-    { icon: "🏥", title: "OPD", desc: "Outpatient queue & triage", href: "/opd", color: "#dbeafe" },
-    { icon: "🛏️", title: "Admissions", desc: "Beds & ward management", href: "/admissions", color: "#dcfce7" },
-    { icon: "💊", title: "Pharmacy", desc: "Stock & dispensing", href: "/pharmacy", color: "#fef9c3" },
-    { icon: "🧠", title: "Clinical AI", desc: "AI diagnosis support", href: "/clinical", color: "#f3e8ff" },
-    { icon: "👤", title: "Patients", desc: "Medical records", href: "/patients", color: "#ffedd5" },
-    { icon: "📅", title: "Appointments", desc: "Scheduling", href: "/appointments", color: "#e0f2fe" },
-    { icon: "💰", title: "Billing", desc: "Invoices & payments", href: "/billing", color: "#fce7f3" },
+    { icon: "🏥", title: t.opd, desc: t.opdDesc, href: "/opd", color: "#dbeafe" },
+    { icon: "🛏️", title: t.admissions, desc: t.admissionsDesc, href: "/admissions", color: "#dcfce7" },
+    { icon: "💊", title: t.pharmacy, desc: t.pharmacyDesc, href: "/pharmacy", color: "#fef9c3" },
+    { icon: "🧠", title: t.clinical, desc: t.clinicalDesc, href: "/clinical", color: "#f3e8ff" },
+    { icon: "👤", title: t.patients, desc: t.patientsDesc, href: "/patients", color: "#ffedd5" },
+    { icon: "📅", title: t.appointments, desc: t.appointmentsDesc, href: "/appointments", color: "#e0f2fe" },
+    { icon: "💰", title: t.billing, desc: t.billingDesc, href: "/billing", color: "#fce7f3" },
     { icon: "🔬", title: "Lab", desc: "Test results", href: "/lab", color: "#f0fdf4" },
-    { icon: "📊", title: "Analytics", desc: "Performance reports", href: "/analytics", color: "#faf5ff" },
-    { icon: "👥", title: "Team", desc: "Staff & roles", href: "/team", color: "#ffe4e6" },
+    { icon: "📊", title: t.analytics, desc: t.analyticsDesc, href: "/analytics", color: "#faf5ff" },
+    { icon: "👥", title: t.team, desc: t.teamDesc, href: "/team", color: "#ffe4e6" },
   ];
 
   return (
