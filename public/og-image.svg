@@ -1,16 +1,21 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" fill="#1a3556"/>
-  <rect x="80" y="180" width="200" height="200" rx="32" fill="#1e4d7b"/>
-  <rect x="120" y="220" width="120" height="35" rx="6" fill="#4fc3f7"/>
-  <rect x="120" y="263" width="120" height="35" rx="6" fill="#4fc3f7"/>
-  <rect x="120" y="306" width="120" height="35" rx="6" fill="#4fc3f7"/>
-  <rect x="162" y="188" width="36" height="184" rx="6" fill="#ffffff" opacity="0.9"/>
-  <rect x="84" y="252" width="192" height="46" rx="6" fill="#ffffff" opacity="0.25"/>
-  <circle cx="290" cy="178" r="16" fill="#4fc3f7"/>
-  <text x="320" y="290" font-family="Arial, sans-serif" font-size="96" font-weight="800" fill="#ffffff" letter-spacing="-2">Healthpost</text>
-  <text x="322" y="348" font-family="Arial, sans-serif" font-size="28" font-weight="400" fill="#4fc3f7" letter-spacing="6">HOSPITAL OPERATING SYSTEM</text>
-  <text x="322" y="400" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)" letter-spacing="1">OPD · Admissions · Pharmacy · Clinical AI · Billing · Analytics</text>
+  <g transform="translate(620, -50) scale(0.63)" opacity="0.18" fill="#4fc3f7" stroke="none">
+    <path d="M340,50 L380,45 L420,48 L460,42 L500,45 L540,48 L580,45 L610,55 L630,70 L635,90 L625,110 L640,130 L650,155 L648,180 L655,205 L660,230 L655,255 L660,280 L665,305 L660,330 L650,355 L635,378 L618,400 L600,420 L580,440 L560,460 L540,478 L520,495 L500,510 L480,522 L460,530 L440,522 L420,510 L400,495 L380,478 L360,460 L340,440 L320,420 L302,400 L285,378 L270,355 L260,330 L255,305 L258,280 L255,255 L252,230 L255,205 L260,180 L258,155 L265,130 L275,110 L268,90 L272,70 L290,55 L310,48 L340,50 Z"/>
+    <path d="M650,155 L680,148 L705,152 L715,165 L710,182 L695,192 L675,188 L658,175 Z"/>
+    <path d="M655,340 L672,332 L688,338 L692,355 L686,372 L672,380 L658,372 L650,358 Z"/>
+  </g>
+  <rect x="80" y="200" width="160" height="160" rx="24" fill="#1e4d7b"/>
+  <rect x="114" y="234" width="92" height="28" rx="5" fill="#4fc3f7"/>
+  <rect x="114" y="270" width="92" height="28" rx="5" fill="#4fc3f7"/>
+  <rect x="114" y="306" width="92" height="28" rx="5" fill="#4fc3f7"/>
+  <rect x="148" y="208" width="28" height="144" rx="5" fill="#ffffff" opacity="0.9"/>
+  <rect x="84" y="262" width="152" height="36" rx="5" fill="#ffffff" opacity="0.25"/>
+  <circle cx="246" cy="198" r="12" fill="#4fc3f7"/>
+  <text x="270" y="280" font-family="Arial, sans-serif" font-size="80" font-weight="800" fill="#ffffff" letter-spacing="-2">Healthpost</text>
+  <text x="272" y="328" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#4fc3f7" letter-spacing="5">HOSPITAL OPERATING SYSTEM</text>
+  <text x="272" y="372" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.55)" letter-spacing="1">OPD · Pharmacy · Clinical AI · Billing · Analytics</text>
   <rect x="0" y="560" width="1200" height="70" fill="#0f2640"/>
-  <text x="80" y="603" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.5)" letter-spacing="1">healthpost.africa</text>
-  <text x="1120" y="603" font-family="Arial, sans-serif" font-size="22" fill="#4fc3f7" letter-spacing="1" text-anchor="end">Free trial</text>
+  <text x="80" y="603" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.5)" letter-spacing="1">healthpost.africa</text>
+  <text x="1120" y="603" font-family="Arial, sans-serif" font-size="20" fill="#4fc3f7" letter-spacing="1" text-anchor="end">Start free trial</text>
 </svg>
