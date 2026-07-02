@@ -44,11 +44,7 @@ export default function LoginPage() {
             <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#374151", marginBottom: 6 }}>Password</label>
             <input value={password} onChange={e => setPassword(e.target.value)} required type="password" placeholder="Your password" style={{ width: "100%", padding: "10px 14px", border: "1px solid #e2e8f0", borderRadius: 8, fontSize: 14, boxSizing: "border-box" as const }} />
           </div>
-          {forgotMode === false && (
-            <div style={{ textAlign: "right", marginTop: -16, marginBottom: 16 }}>
-              <button type="button" onClick={() => setForgotMode(true)} style={{ background: "none", border: "none", color: "#1a3556", fontSize: 13, cursor: "pointer", fontWeight: 600 }}>Forgot password?</button>
-            </div>
-          )}
+
           {resetSent ? (
             <div style={{ background: "#f0fdf4", color: "#16a34a", padding: "12px 14px", borderRadius: 8, textAlign: "center", fontSize: 14, fontWeight: 600 }}>Reset link sent! Check your email.</div>
           ) : (
@@ -58,6 +54,11 @@ export default function LoginPage() {
           )}
           {forgotMode && resetSent === false && (
             <button type="button" onClick={() => setForgotMode(false)} style={{ width: "100%", background: "none", border: "none", color: "#64748b", fontSize: 13, cursor: "pointer", marginTop: 8 }}>← Back to login</button>
+          )}
+          {forgotMode === false && (
+            <div style={{ textAlign: "center", marginTop: 12 }}>
+              <button type="button" onClick={() => setForgotMode(true)} style={{ background: "none", border: "none", color: "#64748b", fontSize: 13, cursor: "pointer" }}>Forgot password?</button>
+            </div>
           )}
         </form>
         <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "#64748b" }}>
