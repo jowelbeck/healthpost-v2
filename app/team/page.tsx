@@ -1,4 +1,5 @@
 "use client";
+import { useHpLang } from "@/lib/useLang";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
@@ -14,6 +15,7 @@ type Staff = {
 
 export default function TeamPage() {
   const router = useRouter();
+  const { lang, setLang, t } = useHpLang();
   const [staff, setStaff] = useState<Staff[]>([]);
   const [loading, setLoading] = useState(true);
   const [facilityId, setFacilityId] = useState("");
@@ -74,7 +76,7 @@ export default function TeamPage() {
     <main style={{ minHeight: "100vh", background: "#f8fafc", fontFamily: "Arial, sans-serif" }}>
       <header style={{ background: "#1a3556", padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <a href="/dashboard" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>← Dashboard</a>
+          <a href="/dashboard" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>{t.back}</a>
           <span style={{ color: "rgba(255,255,255,0.3)" }}>|</span>
           <span style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>👥 Team Management</span>
         </div>
