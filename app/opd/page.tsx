@@ -91,7 +91,7 @@ export default function OPDPage() {
       {/* Header */}
       <header style={{ background: "#1a3556", padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <a href="/dashboard" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>{t.back}</a>
+          <a href="/dashboard" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>"← Dashboard"</a>
           <span style={{ color: "rgba(255,255,255,0.3)" }}>|</span>
           <span style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>🏥 OPD — Outpatient Queue</span>
         </div>
@@ -192,7 +192,7 @@ export default function OPDPage() {
               </select>
             </div>
             <div style={{ marginBottom: 14 }}>
-              <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#374151", marginBottom: 5 }}>Chief complaint *</label>
+              <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#374151", marginBottom: 5 }}>{t.chiefComplaint} *</label>
               <textarea value={complaint} onChange={e => setComplaint(e.target.value)} placeholder="Describe the main symptoms or reason for visit" rows={3} style={{ width: "100%", padding: "9px 12px", border: "1px solid #e2e8f0", borderRadius: 7, fontSize: 14, boxSizing: "border-box" as const, resize: "vertical" as const }} />
             </div>
             <div style={{ marginBottom: 24 }}>

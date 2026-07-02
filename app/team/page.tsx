@@ -76,12 +76,12 @@ export default function TeamPage() {
     <main style={{ minHeight: "100vh", background: "#f8fafc", fontFamily: "Arial, sans-serif" }}>
       <header style={{ background: "#1a3556", padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <a href="/dashboard" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>{t.back}</a>
+          <a href="/dashboard" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>"← Dashboard"</a>
           <span style={{ color: "rgba(255,255,255,0.3)" }}>|</span>
           <span style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>👥 Team Management</span>
         </div>
         <button onClick={() => setShowForm(!showForm)} style={{ background: "#4fc3f7", color: "#1a3556", border: "none", padding: "8px 18px", borderRadius: 7, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
-          + Add staff
+          "+ Add staff"
         </button>
       </header>
 
