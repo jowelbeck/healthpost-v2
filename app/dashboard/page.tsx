@@ -49,8 +49,11 @@ export default function DashboardPage() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 13 }}>{user?.email}</span>
+          <button onClick={() => setLang(lang === "en" ? "fr" : "en")} style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", padding: "6px 14px", borderRadius: 6, cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
+            {lang === "en" ? "FR" : "EN"}
+          </button>
           <button onClick={async () => { await supabase.auth.signOut(); router.push("/login"); }} style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", padding: "6px 14px", borderRadius: 6, cursor: "pointer", fontSize: 13 }}>
-            Log out
+            {t.logout}
           </button>
         </div>
       </header>
@@ -58,7 +61,7 @@ export default function DashboardPage() {
       {/* Welcome */}
       <div style={{ padding: "32px 32px 0", maxWidth: 1100, margin: "0 auto" }}>
         <h1 style={{ color: "#1a3556", fontSize: 24, fontWeight: 800, marginBottom: 4 }}>
-          Good morning 👋
+          {lang === "fr" ? "Bonjour" : "Good morning"} 👋
         </h1>
         <p style={{ color: "#64748b", fontSize: 15, marginBottom: 32 }}>
           {facility?.name || "Your facility"} · {facility?.type || ""} · {facility?.country || ""}
