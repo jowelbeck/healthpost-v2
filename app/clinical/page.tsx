@@ -32,8 +32,9 @@ export default function ClinicalPage() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
-      const role = await getHpUserRole();
-      if (!hasHpAccess("clinical", role)) { router.push("/dashboard"); return; }
+      getHpUserRole().then(role => {
+        if (!hasHpAccess("clinical", role)) { router.push("/dashboard"); return; }
+      });
     });
     const saved = localStorage.getItem("hp_clinical_history");
     if (saved) setCaseHistory(JSON.parse(saved));

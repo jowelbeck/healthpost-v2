@@ -44,8 +44,9 @@ export default function BillingPage() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
-      const role = await getHpUserRole();
-      if (!hasHpAccess("billing", role)) { router.push("/dashboard"); return; }
+      getHpUserRole().then(role => {
+        if (!hasHpAccess("billing", role)) { router.push("/dashboard"); return; }
+      });
       loadInvoices();
     });
   }, []);

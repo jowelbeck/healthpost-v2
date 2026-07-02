@@ -60,8 +60,9 @@ export default function PharmacyPage() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
-      const role = await getHpUserRole();
-      if (!hasHpAccess("pharmacy", role)) { router.push("/dashboard"); return; }
+      getHpUserRole().then(role => {
+        if (!hasHpAccess("pharmacy", role)) { router.push("/dashboard"); return; }
+      });
       loadData();
     });
   }, []);

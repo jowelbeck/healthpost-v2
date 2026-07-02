@@ -43,8 +43,9 @@ export default function AdmissionsPage() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
-      const role = await getHpUserRole();
-      if (!hasHpAccess("admissions", role)) { router.push("/dashboard"); return; }
+      getHpUserRole().then(role => {
+        if (!hasHpAccess("admissions", role)) { router.push("/dashboard"); return; }
+      });
       loadAdmissions();
     });
   }, []);

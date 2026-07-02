@@ -23,8 +23,9 @@ export default function AnalyticsPage() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
-      const role = await getHpUserRole();
-      if (!hasHpAccess("analytics", role)) { router.push("/dashboard"); return; }
+      getHpUserRole().then(role => {
+        if (!hasHpAccess("analytics", role)) { router.push("/dashboard"); return; }
+      });
       loadStats();
     });
   }, []);
