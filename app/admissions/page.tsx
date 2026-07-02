@@ -1,4 +1,5 @@
 "use client";
+import { getHpUserRole, hasHpAccess } from "@/lib/roleCheck";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
@@ -42,6 +43,8 @@ export default function AdmissionsPage() {
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (!user) { router.push("/login"); return; }
+      const role = await getHpUserRole();
+      if (!hasHpAccess("admissions", role)) { router.push("/dashboard"); return; }
       loadAdmissions();
     });
   }, []);
