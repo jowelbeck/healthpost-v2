@@ -28,6 +28,7 @@ export default function DashboardPage() {
     { icon: "💰", title: "Billing", desc: "Invoices & payments", href: "/billing", color: "#fce7f3" },
     { icon: "🔬", title: "Lab", desc: "Test results", href: "/lab", color: "#f0fdf4" },
     { icon: "📊", title: "Analytics", desc: "Performance reports", href: "/analytics", color: "#faf5ff" },
+    { icon: "👥", title: "Team", desc: "Staff & roles", href: "/team", color: "#ffe4e6" },
   ];
 
   return (
