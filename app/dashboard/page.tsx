@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { hp_t } from "@/lib/translations";
+import { useHpLang } from "@/lib/useLang";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -19,8 +19,7 @@ export default function DashboardPage() {
     });
   }, []);
 
-  const [lang, setLang] = useState<"en" | "fr">("en");
-  const t = hp_t(lang);
+  const { lang, setLang, t } = useHpLang();
 
 
   const modules = [
