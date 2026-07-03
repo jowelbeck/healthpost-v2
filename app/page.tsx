@@ -9,7 +9,7 @@ export default function Home() {
     <main style={{ fontFamily: "'Segoe UI', Arial, sans-serif", background: "#fff", minHeight: "100vh" }}>
       
       <nav style={{ background: "#fff", borderBottom: "1px solid #e2e8f0", padding: "0 48px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 100, height: 68 }}>
-        <a href="/"><img src="/logo-dark.svg" alt="Healthpost" style={{ height: 52 }} /></a>
+        <a href="/"><img src="/logo-light.svg" alt="Healthpost" style={{ height: 56 }} /></a>
         <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
           <a href="/pricing" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>{fr ? "Tarifs" : "Pricing"}</a>
           <a href="/login" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>{fr ? "Connexion" : "Log in"}</a>
