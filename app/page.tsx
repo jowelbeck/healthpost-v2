@@ -92,3 +92,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section style={{ background: "linear-gradient(135deg, #0f1f33, #1a3556)", padding: "80px 48px", textAlign: "center" as const, color: "#fff" }}>
+        <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 48, marginBottom: 32 }} />
+        <h2 style={{ fontSize: 44, fontWeight: 900, marginBottom: 16, letterSpacing: "-1px" }}>
+          {fr ? "Pret a transformer votre hopital ?" : "Ready to transform your hospital?"}
+        </h2>
+        <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>
+          {fr ? "Rejoignez les etablissements de sante qui font confiance a Healthpost." : "Join healthcare facilities across Africa that trust Healthpost."}
+        </p>
+        <a href="/signup" style={{ background: "#4fc3f7", color: "#1a3556", padding: "18px 48px", borderRadius: 10, fontWeight: 800, textDecoration: "none", fontSize: 18, display: "inline-block" }}>
+          {fr ? "Commencer gratuitement" : "Start free trial →"}
+        </a>
+        <p style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
+          {fr ? "Aucune carte bancaire · 3 mois gratuits · Annulez a tout moment" : "No credit card · 3 months free · Cancel anytime"}
+        </p>
+      </section>
+
+      <footer style={{ background: "#0a1628", padding: "40px 48px", color: "rgba(255,255,255,0.4)", fontSize: 13 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" as const, gap: 16 }}>
+          <div>
+            <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 28, marginBottom: 8, opacity: 0.6 }} />
+            <div>© {new Date().getFullYear()} Healthpost · healthpost.africa</div>
+          </div>
+          <div style={{ display: "flex", gap: 24 }}>
+            <a href="/pricing" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "Tarifs" : "Pricing"}</a>
+            <a href="/login" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "Connexion" : "Log in"}</a>
+            <a href="/signup" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "S inscrire" : "Sign up"}</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  );
+}
