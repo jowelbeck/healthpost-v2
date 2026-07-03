@@ -61,5 +61,5 @@
   <circle cx="132" cy="18" r="9" fill="#4fc3f7"/>
   <text x="148" y="90" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#ffffff" letter-spacing="-1">Healthpost</text>
   <text x="150" y="114" font-family="Arial, sans-serif" font-size="11" fill="#4fc3f7" letter-spacing="3">HOSPITAL OPERATING SYSTEM</text>
-  <text x="150" y="132" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.4)" letter-spacing="1">healthpost.africa · Powering care across Africa</text>
+  <text x="150" y="132" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.4)" letter-spacing="1">healthpost.africa</text>
 </svg>
