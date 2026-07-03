@@ -9,11 +9,18 @@ export default function Home() {
     <main style={{ fontFamily: "'Segoe UI', Arial, sans-serif", background: "#fff", minHeight: "100vh" }}>
       
       <nav style={{ background: "#fff", borderBottom: "1px solid #e2e8f0", padding: "0 48px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 100, height: 68 }}>
-        <a href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-          <img src="/logo-icon.svg" alt="Healthpost" style={{ height: 48 }} />
+        <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <div style={{ width: 36, height: 36, background: "#1a3556", borderRadius: 9, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="3" y="5" width="14" height="3" rx="1" fill="#4fc3f7"/>
+              <rect x="3" y="9" width="14" height="3" rx="1" fill="#4fc3f7"/>
+              <rect x="3" y="13" width="14" height="3" rx="1" fill="#4fc3f7"/>
+              <rect x="9" y="2" width="3" height="16" rx="1" fill="white" opacity="0.9"/>
+            </svg>
+          </div>
           <div>
-            <div style={{ color: "#1a3556", fontWeight: 800, fontSize: 18, letterSpacing: "-0.5px" }}>Healthpost</div>
-            <div style={{ color: "#4fc3f7", fontSize: 10, fontWeight: 600, letterSpacing: 2 }}>HOSPITAL OPERATING SYSTEM</div>
+            <div style={{ color: "#1a3556", fontWeight: 800, fontSize: 18, letterSpacing: "-0.5px", lineHeight: 1.1 }}>Healthpost</div>
+            <div style={{ color: "#4fc3f7", fontSize: 9, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase" as const }}>Hospital OS</div>
           </div>
         </a>
         <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
