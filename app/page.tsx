@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <main style={{ fontFamily: "Arial, sans-serif", background: "#f8fafc", minHeight: "100vh" }}>
       <nav style={{ background: "#1a3556", padding: "16px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ color: "#fff", fontWeight: 700, fontSize: 22 }}>Healthpost</div>
+        <a href="/"><img src="/logo-dark.svg" alt="Healthpost" style={{ height: 40 }} /></a>
         <div style={{ display: "flex", gap: 24 }}>
           <a href="/signup" style={{ color: "#4fc3f7", textDecoration: "none", fontWeight: 600 }}>Sign up</a>
           <a href="/login" style={{ color: "#fff", textDecoration: "none" }}>Log in</a>
