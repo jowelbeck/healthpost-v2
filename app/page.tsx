@@ -9,7 +9,7 @@ export default function Home() {
     <main style={{ fontFamily: "'Segoe UI', Arial, sans-serif", background: "#fff", minHeight: "100vh" }}>
       
       <nav style={{ background: "#fff", borderBottom: "1px solid #e2e8f0", padding: "0 48px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 100, height: 68 }}>
-        <a href="/"><img src="/logo-full.svg" alt="Healthpost" style={{ height: 36 }} /></a>
+        <a href="/"><img src="/logo-dark.svg" alt="Healthpost" style={{ height: 52 }} /></a>
         <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
           <a href="/pricing" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>{fr ? "Tarifs" : "Pricing"}</a>
           <a href="/login" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>{fr ? "Connexion" : "Log in"}</a>
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       <section style={{ background: "linear-gradient(135deg, #0f1f33, #1a3556)", padding: "80px 48px", textAlign: "center" as const, color: "#fff" }}>
-        <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 48, marginBottom: 32 }} />
+        <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 60, marginBottom: 32 }} />
         <h2 style={{ fontSize: 44, fontWeight: 900, marginBottom: 16, letterSpacing: "-1px" }}>
           {fr ? "Pret a transformer votre hopital ?" : "Ready to transform your hospital?"}
         </h2>
@@ -112,7 +112,7 @@ export default function Home() {
       <footer style={{ background: "#0a1628", padding: "40px 48px", color: "rgba(255,255,255,0.4)", fontSize: 13 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" as const, gap: 16 }}>
           <div>
-            <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 28, marginBottom: 8, opacity: 0.6 }} />
+            <img src="/logo-dark.svg" alt="Healthpost" style={{ height: 40, marginBottom: 8, opacity: 0.8 }} />
             <div>© {new Date().getFullYear()} Healthpost · healthpost.africa</div>
           </div>
           <div style={{ display: "flex", gap: 24 }}>
