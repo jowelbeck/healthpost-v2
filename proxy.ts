@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const protectedRoutes = ["/dashboard", "/opd", "/admissions", "/pharmacy", "/clinical", "/patients", "/appointments", "/billing", "/analytics", "/team", "/lab"];
 const publicRoutes = ["/", "/signup", "/login", "/reset-password"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get("sb-saiboreailvjmxxpeteu-auth-token")?.value ||
                 request.cookies.get("sb-access-token")?.value;
