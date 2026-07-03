@@ -1,11 +1,65 @@
-<svg width="500" height="100" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="500" height="100" fill="#ffffff"/>
-  <rect x="10" y="8" width="82" height="82" rx="13" fill="#1a3556"/>
-  <rect x="22" y="22" width="56" height="13" rx="3" fill="#4fc3f7"/>
-  <rect x="22" y="40" width="56" height="13" rx="3" fill="#4fc3f7"/>
-  <rect x="22" y="58" width="56" height="13" rx="3" fill="#4fc3f7"/>
-  <rect x="42" y="11" width="13" height="76" rx="3" fill="#ffffff" opacity="0.9"/>
-  <rect x="12" y="37" width="78" height="17" rx="3" fill="#ffffff" opacity="0.2"/>
-  <text x="106" y="62" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#1a3556" letter-spacing="-1">Healthpost</text>
-  <text x="108" y="82" font-family="Arial, sans-serif" font-size="10" fill="#4fc3f7" letter-spacing="2">HOSPITAL OPERATING SYSTEM</text>
+<svg width="600" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="160" fill="#ffffff"/>
+  <g transform="translate(340, -80) scale(0.25)" opacity="0.06" fill="#1a3556" stroke="none">
+    <path d="AO"/>
+    <path d="BI"/>
+    <path d="BJ"/>
+    <path d="BF"/>
+    <path d="BW"/>
+    <path d="CF"/>
+    <path d="CI"/>
+    <path d="CM"/>
+    <path d="CD"/>
+    <path d="CG"/>
+    <path d="DJ"/>
+    <path d="DZ"/>
+    <path d="EG"/>
+    <path d="ER"/>
+    <path d="ET"/>
+    <path d="GA"/>
+    <path d="GH"/>
+    <path d="GN"/>
+    <path d="GM"/>
+    <path d="GW"/>
+    <path d="GQ"/>
+    <path d="KE"/>
+    <path d="LR"/>
+    <path d="LY"/>
+    <path d="LS"/>
+    <path d="MA"/>
+    <path d="MG"/>
+    <path d="ML"/>
+    <path d="MZ"/>
+    <path d="MR"/>
+    <path d="MW"/>
+    <path d="NA"/>
+    <path d="NE"/>
+    <path d="NG"/>
+    <path d="RW"/>
+    <path d="EH"/>
+    <path d="SD"/>
+    <path d="SS"/>
+    <path d="SN"/>
+    <path d="SL"/>
+    <path d="SZ"/>
+    <path d="TD"/>
+    <path d="TG"/>
+    <path d="TN"/>
+    <path d="TZ"/>
+    <path d="UG"/>
+    <path d="ZA"/>
+    <path d="ZM"/>
+    <path d="ZW"/>
+    <path d="SO"/>
+  </g>
+  <rect x="16" y="20" width="110" height="110" rx="16" fill="#1a3556"/>
+  <rect x="36" y="40" width="68" height="16" rx="3" fill="#4fc3f7"/>
+  <rect x="36" y="62" width="68" height="16" rx="3" fill="#4fc3f7"/>
+  <rect x="36" y="84" width="68" height="16" rx="3" fill="#4fc3f7"/>
+  <rect x="58" y="23" width="16" height="104" rx="3" fill="#ffffff" opacity="0.9"/>
+  <rect x="18" y="58" width="106" height="22" rx="3" fill="#ffffff" opacity="0.2"/>
+  <circle cx="132" cy="18" r="9" fill="#4fc3f7"/>
+  <text x="148" y="90" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#1a3556" letter-spacing="-1">Healthpost</text>
+  <text x="150" y="114" font-family="Arial, sans-serif" font-size="11" fill="#4fc3f7" letter-spacing="3">HOSPITAL OPERATING SYSTEM</text>
+  <text x="150" y="132" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" letter-spacing="1">healthpost.africa · Powering care across Africa</text>
 </svg>
