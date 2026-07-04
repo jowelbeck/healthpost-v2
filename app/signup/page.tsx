@@ -22,6 +22,27 @@ export default function SignupPage() {
     });
     if (error) { setError(error.message); setLoading(false); return; }
 
+    // Auto-create lead in VCC CRM
+    fetch('https://ifryrtxioeyipjjroqsz.supabase.co/rest/v1/vcc_leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmcnlydHhpb2V5aXBqanJvcXN6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MDI5MDQsImV4cCI6MjA5NzE3ODkwNH0.Z3V93CC6x51QjDifGdLXzG-WJEl1UCh9Ybw02b-X8dY',
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmcnlydHhpb2V5aXBqanJvcXN6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MDI5MDQsImV4cCI6MjA5NzE3ODkwNH0.Z3V93CC6x51QjDifGdLXzG-WJEl1UCh9Ybw02b-X8dY',
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify({
+        name: name || email.split('@')[0],
+        email,
+        company: 'Unknown',
+        country: 'Unknown',
+        product_interest: 'healthpost',
+        source: 'signup',
+        status: 'new',
+        notes: 'Auto-captured from Healthpost signup',
+      }),
+    }).catch(() => {});
+
     // Send welcome email
     fetch("/api/send-email", {
       method: "POST",
