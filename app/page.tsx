@@ -136,6 +136,10 @@ export default function Home() {
         </div>
       </footer>
 
+    {/* Floating WhatsApp button */}
+    <a href="https://wa.me/233208140795?text=Hi%20Healthpost%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20hospital%20operating%20system" target="_blank" style={{ position: "fixed", bottom: 24, right: 24, background: "#25D366", color: "#fff", width: 56, height: 56, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, textDecoration: "none", boxShadow: "0 4px 16px rgba(37,211,102,0.4)", zIndex: 1000 }}>
+      💬
+    </a>
     </main>
   );
 }
