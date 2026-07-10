@@ -8,6 +8,9 @@ export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [facilityName, setFacilityName] = useState("");
+  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -35,7 +38,9 @@ export default function SignupPage() {
         name: name || email.split('@')[0],
         email,
         company: 'Unknown',
-        country: 'Unknown',
+        country: country.trim() || 'Unknown',
+        facility_name: facilityName.trim(),
+        phone: phone.trim(),
         product_interest: 'healthpost',
         source: 'signup',
         status: 'new',
