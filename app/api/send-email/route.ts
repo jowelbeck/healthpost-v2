@@ -101,14 +101,39 @@ export async function POST(request: NextRequest) {
       },
     };
 
+    templates.contact = {
+      subject: `New contact form message from ${name || "a visitor"}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 580px; margin: 0 auto;">
+          <div style="background: #1a3556; padding: 24px; border-radius: 12px 12px 0 0;">
+            <h1 style="color: #fff; margin: 0; font-size: 22px;">🏥 Healthpost — New Contact Message</h1>
+          </div>
+          <div style="padding: 28px; background: #fff; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px;">
+            <p style="color: #334155;"><strong>Name:</strong> ${name || "—"}</p>
+            <p style="color: #334155;"><strong>Email:</strong> ${email || "—"}</p>
+            <p style="color: #334155;"><strong>Subject:</strong> ${body.subject || "—"}</p>
+            <div style="background: #f0f4fa; border-radius: 10px; padding: 20px; margin-top: 16px;">
+              <p style="color: #1a3556; line-height: 1.7; margin: 0; white-space: pre-wrap;">${body.message || ""}</p>
+            </div>
+          </div>
+        </div>
+      `,
+    };
+
     const template = templates[type];
     if (!template) {
       return NextResponse.json({ error: "Invalid email type" }, { status: 400 });
     }
 
+    // Internal-notification email types must always go to a fixed inbox -
+    // never trust a caller-supplied `email` for these, since that would let
+    // anyone use this endpoint as an open relay through our Resend account.
+    const INTERNAL_NOTIFICATION_TYPES = new Set(["contact"]);
+    const recipient = INTERNAL_NOTIFICATION_TYPES.has(type) ? "jowelbeck@aol.com" : email;
+
     const { data: result, error } = await resend.emails.send({
       from: "Healthpost <onboarding@resend.dev>",
-      to: email,
+      to: recipient,
       subject: template.subject,
       html: template.html,
     });
