@@ -130,6 +130,9 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", gap: 24 }}>
             <a href="/pricing" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "Tarifs" : "Pricing"}</a>
+            <a href="/faq" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "FAQ" : "FAQ"}</a>
+            <a href="/help" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "Aide" : "Help"}</a>
+            <a href="/contact" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "Contact" : "Contact"}</a>
             <a href="/login" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "Connexion" : "Log in"}</a>
             <a href="/signup" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{fr ? "S inscrire" : "Sign up"}</a>
           </div>
